@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: org.openjfx:javafx-controls:19-ea+7">
+    <archive path="C:/Users/Hossam/.m2/repository/org/openjfx/javafx-controls/19-ea+7/javafx-controls-19-ea+7.jar" />
+  </library>
+  <library name="Maven: org.vafer:jdependency:2.4.0">
+    <archive path="C:/Users/Hossam/.m2/repository/org/vafer/jdependency/2.4.0/jdependency-2.4.0.jar" />
+  </library>
+  <library name="Maven: org.beanshell:bsh:2.0b4">
+    <archive path="C:/Users/Hossam/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar" />
+  </library>
+  <library name="Maven: commons-io:commons-io:2.6">
+    <archive path="C:/Users/Hossam/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar" />
+  </library>
+  <library name="Maven: org.openjfx:javafx-base:win:19-ea+7">
+    <archive path="C:/Users/Hossam/.m2/repository/org/openjfx/javafx-base/19-ea+7/javafx-base-19-ea+7-win.jar" />
+  </library>
+  <library name="Maven: org.openjfx:javafx-graphics:19-ea+7">
+    <archive path="C:/Users/Hossam/.m2/repository/org/openjfx/javafx-graphics/19-ea+7/javafx-graphics-19-ea+7.jar" />
+  </library>
+  <library name="Maven: org.openjfx:javafx-controls:win:19-ea+7">
+    <archive path="C:/Users/Hossam/.m2/repository/org/openjfx/javafx-controls/19-ea+7/javafx-controls-19-ea+7-win.jar" />
+  </library>
+  <library name="Maven: org.openjfx:javafx-base:19-ea+7">
+    <archive path="C:/Users/Hossam/.m2/repository/org/openjfx/javafx-base/19-ea+7/javafx-base-19-ea+7.jar" />
+  </library>
+  <library name="Maven: org.openjfx:javafx-graphics:win:19-ea+7">
+    <archive path="C:/Users/Hossam/.m2/repository/org/openjfx/javafx-graphics/19-ea+7/javafx-graphics-19-ea+7-win.jar" />
+  </library>
+  <library name="Maven: org.ow2.asm:asm-tree:8.0">
+    <archive path="C:/Users/Hossam/.m2/repository/org/ow2/asm/asm-tree/8.0/asm-tree-8.0.jar" />
+  </library>
+  <library name="Maven: org.ow2.asm:asm-commons:8.0">
+    <archive path="C:/Users/Hossam/.m2/repository/org/ow2/asm/asm-commons/8.0/asm-commons-8.0.jar" />
+  </library>
+  <library name="Maven: org.ow2.asm:asm-util:8.0">
+    <archive path="C:/Users/Hossam/.m2/repository/org/ow2/asm/asm-util/8.0/asm-util-8.0.jar" />
+  </library>
+  <library name="Maven: org.ow2.asm:asm:8.0">
+    <archive path="C:/Users/Hossam/.m2/repository/org/ow2/asm/asm/8.0/asm-8.0.jar" />
+  </library>
+  <library name="Maven: org.ow2.asm:asm-analysis:8.0">
+    <archive path="C:/Users/Hossam/.m2/repository/org/ow2/asm/asm-analysis/8.0/asm-analysis-8.0.jar" />
+  </library>
+</eclipse-userlibraries>
+
