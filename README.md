@@ -1,8 +1,7 @@
 
 # Report on the Implementation of the "Divide and Trade" Algorithm in the Knapsack Problem
 
-**Author:** Eid Hossam Mohamed, 11-108  
-**Project Repository on GitHub:** [hossameid7/--HoSsaM-Technology](https://github.com/hossameid7/--HoSsaM-Technology)
+![Screenshot of the Knapsack GUI](./image.png)
 
 ## Introduction
 
