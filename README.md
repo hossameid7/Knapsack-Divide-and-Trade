@@ -1,149 +1,139 @@
 
-# Решение задачи о рюкзаке: подход и важные части кода
+# Report on the Implementation of the "Divide and Trade" Algorithm in the Knapsack Problem
 
-![Screenshot of the Knapsack GUI](./image.png)
+**Author:** Eid Hossam Mohamed, 11-108  
+**Project Repository on GitHub:** [hossameid7/--HoSsaM-Technology](https://github.com/hossameid7/--HoSsaM-Technology)
 
-## Введение
-Данный проект представляет собой реализацию решения задачи о рюкзаке, включающую использование метода полного перебора (Divide и Trade). Это GUI-приложение на Java, которое позволяет пользователям вводить данные о предметах и находить оптимальный набор предметов, которые можно поместить в рюкзак, с максимальной суммарной стоимостью и ограничением по весу.
+## Introduction
 
-## Алгоритм решения задачи о рюкзаке
-Алгоритм использует метод полного перебора для нахождения оптимального решения. Основные параметры задачи:
+The knapsack problem is a classic optimization problem where the goal is to maximize the value of a set of items that can be packed into a knapsack without exceeding a given weight limit. It is typically solved using dynamic programming, greedy algorithms, or branch and bound methods, but an interesting approach can also be implemented through "Divide and Conquer".
 
-- **Максимальный вес рюкзака (W)**
-- **Количество различных предметов (N)**
+The "Divide and Conquer" method for the knapsack problem involves splitting the list of items into two equal parts, solving the knapsack problem for each part separately, and then combining the solutions. This may also require considering cases where items from the first part are combined with items from the second part to achieve the optimal result.
 
-Каждый предмет имеет следующие свойства:
-- **Название**
-- **Вес**
-- **Стоимость (ценность)**
+## Example Explanation
 
-Цель задачи: найти такой набор предметов, который не превышает максимальный вес рюкзака и имеет максимальную суммарную стоимость.
+### Items:
+We have a knapsack with a total weight of 9 kg and the following items:
 
-### Пример данных:
-| Название  | Вес  | Стоимость |
-|-----------|------|-----------|
-| ноутбук   | 2 Кг | 57.5 тыс. руб. |
-| книги     | 5 Кг | 10 руб.    |
-| гитара    | 7 Кг | 16 руб.    |
+### Groups:
+- **Group 1:** Book, Pencil, 120 GB Flash Drive, Mobile Charger
+- **Group 2:** Research Tools, USB Hard Drive (first), USB Hard Drive (second), Laptop
 
-### Сложность алгоритма
-Метод полного перебора имеет вычислительную сложность O(N!), где N - количество предметов.
+Using the "Divide and Conquer" method, we divided the items into two groups and calculated the maximum value that can be carried in the knapsack for each group, as well as considered the combination of these groups:
 
-## Класс Backpack
-Класс **Backpack** реализует алгоритм решения задачи о рюкзаке.
+### Solution:
+1. **Best Solution for Group 1 (Book, Pencil, 120 GB Flash Drive, Mobile Charger):**
+   - Maximum Value: 7720 RUB
+   - Combination of Items: Book, Pencil, 120 GB Flash Drive, Mobile Charger
+   - Total Weight: 3.2 kg
 
+2. **Best Solution for Group 2 (Research Tools, USB Hard Drive (first), USB Hard Drive (second), Laptop):**
+   - Maximum Value: 92480 RUB
+   - Combination of Items: Research Tools, USB Hard Drive (first), USB Hard Drive (second), Laptop
+   - Total Weight: 9 kg
+
+3. **Combined Solution for All Items:**
+   - Maximum Value: 98906 RUB
+   - Combination of Items: Mobile Charger, Research Tools, Laptop
+   - Total Weight: 9 kg
+
+### Result:
+```python
+(7720, ('Book', 'Pencil', '120 GB Flash Drive', 'Mobile Charger')),
+(92480, ('Research Tools', 'USB Hard Drive (first)', 'USB Hard Drive (second)', 'Laptop')),
+(98906, ('Mobile Charger', 'Research Tools', 'Laptop'))
+```
+As shown, the best strategy for packing the knapsack to maximize value while staying within the 9 kg weight limit is to take the Mobile Charger, Research Tools, and Laptop, achieving a maximum value of 98906 RUB.
+
+## Algorithm and Code Description
+
+### Idea of the "Divide and Trade" Algorithm
+"Divide and Trade" is an approach to solving the knapsack problem by splitting all items into two parts, solving the knapsack problem for each part separately, and then combining the solutions. This reduces the spatial and temporal complexity of the algorithm by recursively breaking down the original problem into smaller sub-problems.
+
+### Implementation
+
+**Class `Item`:**
+```java
+class Item {
+    String name;
+    double weight;
+    int price;
+
+    public Item(String name, double weight, int price) {
+        this.name = name;
+        this.weight = weight;
+        this.price = price;
+    }
+}
+```
+
+**Class `Backpack`:**
 ```java
 class Backpack {
     private final double maxWeight;
-    List<Item> bestItems = null;
+    private List<Item> bestItems = null;
+    private double bestWeight = 0;
     private int bestPrice = 0;
 
     public Backpack(double maxWeight) {
         this.maxWeight = maxWeight;
     }
 
-    public void solve(List<Item> items) {
-        solveRecursively(items, 0, new ArrayList<>(), 0, 0);
+    public void solveWithDivideAndTrade(List<Item> items) {
+        // Implementation here
+    }
+
+    private void combineSolutions(List<Item> leftItems, List<Item> rightItems) {
+        // Implementation here
+    }
+
+    private void solve(List<Item> items) {
+        // Implementation here
     }
 
     private void solveRecursively(List<Item> items, int index, List<Item> currentItems, double currentWeight, int currentPrice) {
-        if (index == items.size()) {
-            if (currentWeight <= maxWeight && currentPrice > bestPrice) {
-                bestItems = new ArrayList<>(currentItems);
-                bestPrice = currentPrice;
-            }
-            return;
-        }
+        // Implementation here
+    }
 
-        Item currentItem = items.get(index);
+    public List<Item> getBestItems() {
+        return bestItems;
+    }
 
-        if (currentWeight + currentItem.weight <= maxWeight) {
-            currentItems.add(currentItem);
-            solveRecursively(items, index + 1, currentItems, currentWeight + currentItem.weight, currentPrice + currentItem.price);
-            currentItems.remove(currentItem);
-        }
-        solveRecursively(items, index + 1, currentItems, currentWeight, currentPrice);
+    public int getBestPrice() {
+        return bestPrice;
+    }
+
+    public double getBestWeight() {
+        return bestWeight;
     }
 }
 ```
 
-### Описание:
-1. **Конструктор `Backpack`** - задаёт максимальный вес рюкзака.
-2. **Метод `solve`** - инициирует процесс решения задачи.
-3. **Метод `solveRecursively`** - реализует рекурсивную логику для нахождения оптимального набора предметов.
+### GUI Implementation
+The GUI is implemented using Java Swing and includes fields for inputting item data and maximum weight, buttons for triggering calculations, and tables for displaying the entered items and results.
 
-## GUI-приложение
-### Конструктор BackpackSolverGUI
-
+**Class `BackpackSolverGUI`:**
 ```java
-public BackpackSolverGUI() {
-    super("Решение задачи о рюкзаке");
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setSize(800, 600);
-    setLayout(new BorderLayout());
-    // Инициализация и расположение элементов GUI
+public class BackpackSolverGUI extends JFrame {
+    // GUI components and methods for user interaction with the program.
 }
 ```
 
-### Описание:
-1. Устанавливает название окна, размеры и поведение при закрытии.
-2. Использует **BorderLayout** для компоновки элементов интерфейса.
+### Key Features:
+- Input Panel for entering item data.
+- Control Panel for setting the maximum weight and triggering the solution.
+- List Panel for displaying entered items.
+- Result Panel for showing the knapsack solution, including selected items, their weight, and value.
 
-### Метод addItem
+### Program Workflow:
+1. Users input data into fields and click "Add Item". The data is added to the table and internal item list.
+2. Users can select an item in the table and click "Delete" to remove it from the list and table.
+3. When "Solve" is clicked, the program reads the maximum weight and uses the `solveWithDivideAndTrade` method of the `Backpack` class to find the optimal set of items.
 
+### Visualization of Results:
 ```java
-private void addItem(ActionEvent e) {
-    String name = nameField.getText();
-    double weight = Double.parseDouble(weightField.getText());
-    int price = Integer.parseInt(priceField.getText());
-    Item item = new Item(name, weight, price);
-    items.add(item);
-    DefaultTableModel model = (DefaultTableModel) itemTable.getModel();
-    model.addRow(new Object[]{name, weight, price});
-    nameField.setText("");
-    weightField.setText("");
-    priceField.setText("");
-}
+JOptionPane.showMessageDialog(this, "Best Price: " + backpack.getBestPrice() + "
+Total Weight: " + backpack.getBestWeight());
 ```
 
-### Описание:
-- Получает данные из текстовых полей и создаёт новый объект **Item**.
-- Добавляет созданный предмет в список **items** и отображает его в таблице **itemTable**.
-- Очищает поля ввода для нового ввода.
-
-### Метод solveBackpack
-
-```java
-private void solveBackpack(ActionEvent e) {
-    double maxWeight = Double.parseDouble(maxWeightField.getText());
-    Backpack backpack = new Backpack(maxWeight);
-    backpack.solve(items);
-    DefaultTableModel resultModel = new DefaultTableModel(new String[]{"Название", "Вес", "Стоимость"}, 0);
-    resultTable.setModel(resultModel);
-    for (Item item : backpack.bestItems) {
-        resultModel.addRow(new Object[]{item.name, item.weight, item.price});
-    }
-}
-```
-
-### Метод resetTest
-
-```java
-private void resetTest(ActionEvent e) {
-    DefaultTableModel model = (DefaultTableModel) itemTable.getModel();
-    model.setRowCount(0);
-    items.clear();
-    nameField.setText("");
-    weightField.setText("");
-    priceField.setText("");
-    maxWeightField.setText("");
-    resultTable.setModel(new DefaultTableModel());
-}
-```
-
-### Описание:
-1. Сбрасывает все таблицы и поля ввода в исходное состояние.
-2. Очищает список **items** и обновляет интерфейс для нового ввода.
-
-## Заключение
-Проект представляет собой визуальное решение задачи о рюкзаке с использованием метода полного перебора, который реализован на Java. GUI-интерфейс позволяет легко взаимодействовать с программой, добавлять предметы и получать оптимальное решение. Код организован так, чтобы его можно было легко модифицировать и расширять для дальнейшего развития проекта.
+The user sees an updated table with information about the items selected as part of the optimal knapsack solution. A pop-up window with the total value and weight gives a quick overview of the results.
